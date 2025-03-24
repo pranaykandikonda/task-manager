@@ -10,7 +10,7 @@ const dbPath = path.join(__dirname, 'tasks.db');
 const SECRET_KEY = 'pranay';
 const db = new sqlite3.Database(dbPath);
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://comforting-platypus-69936a.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
