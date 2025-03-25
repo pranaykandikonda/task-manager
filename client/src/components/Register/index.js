@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from '../../withRouter';
 import './index.css';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 class Register extends Component {
   state = {
     email: '',
@@ -18,7 +20,7 @@ class Register extends Component {
     }
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch(`${API_BASE_URL}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

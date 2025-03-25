@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from '../../withRouter';
 import './index.css';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 class Login extends Component {
   state = { 
     email: '',
@@ -12,7 +14,7 @@ class Login extends Component {
   handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch(`${API_BASE_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state)

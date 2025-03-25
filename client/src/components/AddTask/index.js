@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from '../../withRouter';
 import './index.css';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 class AddTask extends Component {
   state = {
     title: '',
@@ -15,7 +17,7 @@ class AddTask extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/tasks', {
+      const response = await fetch(`${API_BASE_URL}/api/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
