@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from '../../withRouter';
 import './index.css';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
-
 class EditTask extends Component {
   state = {
     title: '',
@@ -26,7 +23,7 @@ class EditTask extends Component {
 
   fetchTask = async (id) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
+      const response = await fetch(`/api/tasks/${id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -60,7 +57,7 @@ class EditTask extends Component {
     const { title, description, status } = this.state;
   
     try {
-      const response = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
+      const response = await fetch(`/api/tasks/${id}`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',

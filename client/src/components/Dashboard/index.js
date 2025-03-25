@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { MdNotificationsActive } from 'react-icons/md';
 import './index.css';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
 class Dashboard extends Component {
   state = {
     stats: [],
@@ -13,7 +11,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     // Fetch task statistics
-    fetch(`${API_BASE_URL}/api/stats`, {
+    fetch('/api/stats', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
